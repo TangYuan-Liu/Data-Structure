@@ -1,9 +1,4 @@
 /*
-The spare matrix is organized by mutilinked list.
-Author: liu.sy.chn@hotmail.com
-*/
-
-/*
 完成一个稀疏矩阵的基本操作
 */
 
@@ -91,15 +86,19 @@ matrix_pointer mread(){
 		}
 		//关闭最后一行
 		last -> right = hdnode[current_row];
-	
+		//关闭所有列
+		for(int i=0; i < num_col; i++)
+			hdnode[i] ->u.next->down = hdnode[i];
+		//将所有节点连起来
+			for(int i=0; i<num_head-1; i++)
+				hdnode[i] ->u.next = hdnode[i+1];
+			hdnode[num_head-1] ->u.next = node;
+			node -> right = hdnode[0];
 	}
-	printf("请输入");
-
-
+	return node;
 }
 
 
 void main(){
-	printf("Hello");
-
+	mread();
 }
