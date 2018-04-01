@@ -1,4 +1,4 @@
-//author: liu.sy.chn@hotmail.com
+//author: Tangyuan.Liu
 //完成堆栈的操作(单个数组实现双堆栈)
 //完成链栈，top为head(1->2->3->4....->n)
 //                   ^
