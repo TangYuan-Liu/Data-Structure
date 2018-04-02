@@ -1,4 +1,3 @@
-//author: Tangyuan.Liu
 //完成堆栈的操作(单个数组实现双堆栈)
 //完成链栈，top为head(1->2->3->4....->n)
 //                   ^
@@ -9,7 +8,7 @@ using namespace std;
 
 #define ElementType int	
 #define max_size 50
-
+/*******************************************************/
 //双栈结构体
 struct Dstack{
 		ElementType Stack[max_size];
@@ -82,9 +81,70 @@ void array_approach(){
 		cin >> flag;
 	}
 }
+/*************************************************************/
+
+
+struct SNode{
+	ElementType value;
+	SNode *Next;
+};
+
+SNode* create_stack(){
+	SNode* s;
+	s = new SNode;
+	s -> Next = NULL;
+	return s;
+}
+
+
+
+void chain_push(SNode* head){
+	ElementType item;
+	cout << "Please input the value\n";
+	cin >> item;
+	SNode* tmpcell;
+	tmpcell = new SNode;
+	tmpcell ->Next = head ->Next;
+	head -> Next = tmpcell;
+	tmpcell -> value = item;
+}
+
+void chain_pop(SNode* head){
+	if(head->Next == NULL){
+		cout << "栈已空\n";
+		return;
+	}
+	else{
+		SNode* tmppointer;
+		tmppointer = head -> Next;
+		head -> Next = head -> Next -> Next;
+		delete(tmppointer);
+	}
+
+}
+
+int chain_approach(){
+	SNode* head;
+	head = create_stack();
+	int flag = 0;
+	cout << "Do you want to start? yes(1) no(0)\n";
+	cin >> flag;
+	int opt = 2;
+	while(flag){
+		cout << "Push(1) or Pop(0)?\n ";
+		cin >> opt;
+		(opt == 1) ? chain_push(head) : chain_pop(head);
+		cout << "Continue ? yes(1) no(0)\n";
+		cin >> flag;
+	}
+	return 0;
+}
 
 
 int main(){
-	array_approach();
+	int flag;
+	cout << "Array Approach(0) or Chain Approach(1)?\n";
+	cin >> flag;
+	(flag == 0) ? array_approach() : chain_approach();
 	return 0;
 }
