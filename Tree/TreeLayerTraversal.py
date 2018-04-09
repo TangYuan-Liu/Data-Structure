@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 This is a layer search achieve using python
+树的层序遍历
+树的构建过程也是使用的队列
 """
-
 class tree_node:
     value = None
     left = None
