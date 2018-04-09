@@ -13,8 +13,8 @@ class tree_node:
         self.right = None
         self.right = None
 
+        
 def create_tree(head):
-    
     print("请按提示构建树")
     print("开始构建树？Yes(1) No(0)")
     flag = raw_input()
