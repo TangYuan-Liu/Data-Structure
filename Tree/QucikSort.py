@@ -40,10 +40,16 @@ def char2num(seq):
     return numlist
 if __name__ == "__main__":
     print("This is a QuickSort program")
-    print("Please input the series:")
-    seq = raw_input()
-    seq = char2num(seq)
+    print("How many number you want sort?:")
+    num = int(raw_input())
+    seq = []
+    for i in range(num):
+        print("Please input %d" % i)
+        seq.append(int(raw_input()))
+    #seq = char2num(seq)
+    print("Input sequence is:")
     print seq
     count = len(seq)-1
     QuickSort(seq,0,count)
+    print("Sort result is:")
     print seq
