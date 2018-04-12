@@ -1,6 +1,8 @@
 #分治法的具体应用
 """
-机械工业出版社出版的Fundamentals of Data Structure上关于快速排序的算法有错误，具体问题是扫描每个值时，应添加数组越界判断条件。
+机械工业出版社出版的Fundamentals of Data Structure上关于快速排序的算法有错误，具体问题有两个：
+1.扫描每个值时，应添加数组越界判断条件。
+2.扫描的判断条件中，应设置seq[i]<=key，或者seq[j]>=key. 总之，对于某数组键值与key相等时，得有通过条件，不然就会陷入死循环。
 """
 
 import os
@@ -14,7 +16,7 @@ def QuickSort(seq,left,right):
     
     while(i<j):
         #Not only scan the value one by one, but also remember to check the i<=right and j>=left
-        while(i<=right and seq[i]<key):
+        while(i<=right and seq[i]<=key):
             i+=1
             print i
         while(j>=left and seq[j]>key):
