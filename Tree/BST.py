@@ -64,19 +64,20 @@ def DeleteNode(head,value):
                     else:
                         head = head.left
         return head
-                        
-if __name__ == "__main__":
-    head = TL.tree_node(None)
-    CreateTree(head)
-    TL.output_tree(head)
-    MinNode = FindMin(head)
-    flag = None
-    print("Do you want start to delete? Yes(1) No(0)")
+
+def RunDelete(head):
+    print("Start Delete? Yes(1) No(0)")
     flag = raw_input()
     while(flag == '1'):
-        print("Which node want to delete?")
+        print("Input the node you want delete")
         temp = int(raw_input())
         DeleteNode(head,temp)
         print("Continue? Yes(1) No(0)")
         flag = raw_input()
+
+if __name__ == "__main__":
+    head = TL.tree_node(None)
+    CreateTree(head)
+    TL.output_tree(head)
+    RunDelete(head)
     TL.output_tree(head)
