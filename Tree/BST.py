@@ -65,8 +65,6 @@ def DeleteNode(head,value):
                         head = head.left
         return head
                         
-
-
 if __name__ == "__main__":
     head = TL.tree_node(None)
     CreateTree(head)
