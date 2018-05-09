@@ -1,5 +1,6 @@
 #This is a basic implement of heap
-
+#完全二叉树使用数组进行存储
+#guard是哨兵元素，是list[0]，用来辅助树的调整
 class MaxHeap:
     def __init__(self,capacity,guard):
         self.list = []
