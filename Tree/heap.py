@@ -19,6 +19,38 @@ class MaxHeap:
             self.list[current] = self.list[current/2]
             self.list[current/2] = value
             current = current/2
+    def delete(self):
+        if(self.size == 0):
+            print("Heap is empty")
+            return
+        maxitem = self.list[1]
+        temp = self.list[-1]
+        self.size -= 1
 
+        parent = 1
+        while(parent*2<self.size):
+            child = 2*parent
+            if(child != self.size and (self.list[child] < self.list[child+1])):
+                child += 1
+            if(temp >= self.list[child]):
+               break
+            else:
+               self.list[parent] =self.list[child]
+
+            parent = child
+
+        if(self.size == 2):
+            if(self.list[1] > self.list[2]):
+                return
+            else:
+                parent = 2
+        """
+        if(self.size == 1):
+            parent = 1
+        """
+        self.list[parent] = temp
+        self.list = self.list[0:self.size+1]
+            
+     
     def output(self):
         print self.list
