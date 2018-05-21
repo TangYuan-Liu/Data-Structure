@@ -1,6 +1,7 @@
 #This is a basic implement of heap
 #完全二叉树使用数组进行存储
 #guard是哨兵元素，是list[0]，用来辅助树的调整
+#删除过程个人认为教材上有错误，所以按照自己的思路进行了改动。parent指向的是刚刚调整为list[0]的原list[-1]最终要放的位置。
 class MaxHeap:
     def __init__(self,capacity,guard):
         self.list = []
