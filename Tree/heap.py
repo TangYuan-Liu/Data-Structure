@@ -55,3 +55,43 @@ class MaxHeap:
      
     def output(self):
         print self.list
+        
+    def buildheap(self):
+        print("Please input the series (Seperate with blank)")
+        series = raw_input()
+        series = series.split()
+        if(len(series) > self.capa):
+            print("Capacity exceeded")
+            return
+
+        for i in range(len(series)):
+            self.list.append(int(series[i]))
+
+        self.size = len(series)
+
+        i = self.size/2
+        while(i>0):
+            self.adjust(i)
+            i -= 1
+
+    def adjust(self,i):
+        x = self.list[i]
+        parent = i
+        while(parent*2<self.size):
+            child = 2*parent
+            if(child != self.size and (self.list[child] < self.list[child+1])):
+                child += 1
+            if(x >= self.list[child]):
+               break
+            else:
+               self.list[parent] =self.list[child]
+
+            parent = child
+
+        if(parent*2 == self.size):
+            if(self.list[parent] > self.list[parent*2]):
+                return
+            else:
+                parent = parent*2
+
+        self.list[parent] = x
