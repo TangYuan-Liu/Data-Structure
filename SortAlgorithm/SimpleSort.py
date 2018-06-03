@@ -23,3 +23,27 @@ def bubble_sort(data):
 
         if(flag == 0):
             break
+
+            
+#插入排序
+"""
+课程视频中的插入排序算法有问题，如下进行了一些修改。
+"""
+def insert_sort(a):
+    length = len(a)
+    newlist = a
+    for i in range(1,len(a)):
+        temp = a[i]
+        flag = 0
+        for j in range(i):
+            if(temp<a[i-j-1]):
+               newlist[i-j] = newlist[i-j-1]
+               #print newlist
+            else:
+               flag = 1
+               break
+        if(flag == 0):
+            newlist[i-j-1] = temp
+        else:
+            newlist[i-j] = temp
+    return newlist 
